@@ -1,0 +1,76 @@
+package com.example.conversionpeso
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val peso = findViewById<EditText>(R.id.editValor)
+        val spinnerFrom1 = findViewById<Spinner>(R.id.spinnerFrom1)
+        val spinnerFrom2 = findViewById<Spinner>(R.id.spinnerFrom2)
+        val btnConvercion = findViewById<Button>(R.id.btnConvertir)
+        val tvResultado = findViewById<TextView>(R.id.tvResultado)
+        btnConvercion.setOnClickListener {
+            val textoPeso = peso.text.toString()
+            if(textoPeso.isNotEmpty()){
+                try{
+                    val valorPeso = textoPeso.toDouble()
+                    val unidadDesde = spinnerFrom1.selectedItem.toString()
+                    val unidadHacia = spinnerFrom2.selectedItem.toString()
+                    if(unidadDesde == unidadHacia){
+                        Toast.makeText(this,"Seleccione unidades diferentes", Toast.LENGTH_LONG).show()
+                        tvResultado.text = "Las unidades no pueden ser iguales"
+                        return@setOnClickListener
+                    }
+                    else{
+                        //convertimos cualquier unidad de entrada a gramos
+                        val pesoEnGramos = when {
+                            unidadDesde.contains("kilogramo") -> valorPeso * 1000.0
+                            unidadDesde.contains("libra") -> valorPeso * 453.592
+                            unidadDesde.contains("onza") -> valorPeso * 28.3495
+                            unidadDesde.contains("gramo") -> valorPeso
+                            else -> valorPeso
+                        }
+                        //convertir de gramos o cualquier eleccion
+                        val resultado = when {
+                            unidadHacia.contains("kilogramo") -> pesoEnGramos / 1000.0
+                            unidadHacia.contains("libra") -> pesoEnGramos / 453.592
+                            unidadHacia.contains("onza") -> pesoEnGramos / 28.3495
+                            unidadHacia.contains("gramo") -> pesoEnGramos
+                            else -> pesoEnGramos
+                        }
+                        val etiquetaDesde =
+                            if(unidadDesde.contains("kilogramo")) "kg"
+                            else if(unidadDesde.contains("libra")) "lb"
+                            else if(unidadDesde.contains("onza")) "oz"
+                            else "g"
+                        val etiquetaHacia =
+                            if(unidadHacia.contains("kilogramo")) "kg"
+                            else if(unidadHacia.contains("libra")) "lb"
+                            else if(unidadHacia.contains("onza")) "oz"
+                            else "g"
+                        val formatoDecimales = when {
+                            unidadHacia.contains("kilogramo") -> "%.4f"
+                            unidadHacia.contains("libra") -> "%.4f"
+                            unidadHacia.contains("onza") -> "%.3f"
+                            unidadHacia.contains("gramo") -> "%.0f"
+                            else -> "%.4f"
+                        }
+                        tvResultado.text = "%.1f %s = $formatoDecimales %s".format(valorPeso, etiquetaDesde, resultado, etiquetaHacia)
+                    }
+                }catch (e: NumberFormatException) {
+                    tvResultado.text = "Error de conversión."
+                }
+            } else {
+                Toast.makeText(this,"Por favor, ingrese un valor.", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+}

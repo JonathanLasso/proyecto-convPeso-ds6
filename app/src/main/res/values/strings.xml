@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ConversionPeso</string>
+    <string-array name="unidades_peso">
+        <item>kilogramo(kg)</item>
+        <item>libra(lb)</item>
+        <item>onza(oz)</item>
+        <item>gramo(gr)</item>
+    </string-array>
+    <string name="titulo">Conversión de Peso</string>
+    <string name="unidadDesde">Convertir De:</string>
+    <string name="unidadHacia">Convertir A:</string>
+    <string name="btnTitulo">CONVERTIR</string>
+</resources>
