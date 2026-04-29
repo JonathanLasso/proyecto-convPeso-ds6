@@ -3,6 +3,7 @@ package com.example.conversionpeso
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -16,17 +17,28 @@ class MainActivity : AppCompatActivity() {
         val spinnerFrom1 = findViewById<Spinner>(R.id.spinnerFrom1)
         val spinnerFrom2 = findViewById<Spinner>(R.id.spinnerFrom2)
         val btnConvercion = findViewById<Button>(R.id.btnConvertir)
+        val btnInvertir = findViewById<ImageButton>(R.id.btnInvertir)
         val tvResultado = findViewById<TextView>(R.id.tvResultado)
+        btnInvertir.setOnClickListener {
+            val pos1 = spinnerFrom1.selectedItemPosition
+            val pos2 = spinnerFrom2.selectedItemPosition
+
+            spinnerFrom1.setSelection(pos2)
+            spinnerFrom2.setSelection(pos1)
+
+            if(peso.text.isNotEmpty()){
+                btnConvercion.performClick()
+            }
+        }
         btnConvercion.setOnClickListener {
             val textoPeso = peso.text.toString()
             if(textoPeso.isNotEmpty()){
                 try{
                     val valorPeso = textoPeso.toDouble()
-                    val unidadDesde = spinnerFrom1.selectedItem.toString()
-                    val unidadHacia = spinnerFrom2.selectedItem.toString()
+                    val unidadDesde = spinnerFrom1.selectedItem.toString().lowercase()
+                    val unidadHacia = spinnerFrom2.selectedItem.toString().lowercase()
                     if(unidadDesde == unidadHacia){
                         Toast.makeText(this,"Seleccione unidades diferentes", Toast.LENGTH_LONG).show()
-                        tvResultado.text = "Las unidades no pueden ser iguales"
                         return@setOnClickListener
                     }
                     else{

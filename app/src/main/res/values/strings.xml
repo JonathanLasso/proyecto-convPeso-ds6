@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConversionPeso</string>
+    <string name="app_name">App de conversión de peso</string>
     <string-array name="unidades_peso">
         <item>kilogramo(kg)</item>
         <item>libra(lb)</item>
@@ -10,11 +10,9 @@
     <string name="unidadDesde">Convertir De:</string>
     <string name="unidadHacia">Convertir A:</string>
     <string name="btnTitulo">CONVERTIR</string>
-
-    <string name="lista_nombres">
-    Edinson Ramirez 8-948-104\n
-    Ricardo de Freitas 8-769-2017\n
-    Jonathan, lasso 8-1034-308\n
-    Jonathan Quinto
-</string>
+    <string name="tituloIntegrantes">Integrantes:</string>
+    <string name="Integrante1">De Freitas Ricardo</string>
+    <string name="Integrante2">Lasso Jonathan</string>
+    <string name="Integrante3">Quinto Jonathan</string>
+    <string name="Integrante4">Ramirez Edinson</string>
 </resources>

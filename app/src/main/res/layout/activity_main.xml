@@ -11,10 +11,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#6200EE"
+        android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        app:title="ConversionPeso"
-        app:titleTextColor="#FFFFFF"
+        app:title="@string/app_name"
+        app:titleTextColor="?attr/colorOnPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <LinearLayout
@@ -22,6 +22,7 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:background="?attr/colorSurface"
         android:padding="32dp">
 
         <TextView
@@ -31,7 +32,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             android:text="@string/titulo"
-            android:textColor="#757575"
+            android:textColor="?attr/colorSecondary"
             android:textSize="18sp" />
 
         <EditText
@@ -41,6 +42,7 @@
             android:layout_marginBottom="32dp"
             android:gravity="center"
             android:inputType="numberDecimal"
+            android:textColor="?attr/colorSecondary"
             android:text=""
             android:textSize="18sp" />
 
@@ -49,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/unidadDesde"
-            android:textColor="#9E9E9E"
+            android:textColor="?attr/colorSecondary"
             android:textSize="14sp" />
 
         <Spinner
@@ -58,14 +60,26 @@
             android:layout_height="48dp"
             android:layout_marginBottom="24dp"
             android:entries="@array/unidades_peso"
+            android:background="?attr/colorSecondaryVariant"
+            android:textColor="?attr/colorSecondaryVariant"
             android:spinnerMode="dropdown" />
+
+        <ImageButton
+            android:id="@+id/btnInvertir"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/colorPrimary"
+            android:src="@drawable/ic_intercambio"
+            app:tint="?attr/colorSecondary"
+            android:contentDescription="Intercambiar unidades" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/unidadHacia"
-            android:textColor="#9E9E9E"
+            android:textColor="?attr/colorSecondary"
             android:textSize="14sp" />
 
         <Spinner
@@ -74,32 +88,68 @@
             android:layout_height="48dp"
             android:layout_marginBottom="48dp"
             android:entries="@array/unidades_peso"
+            android:background="?attr/colorSecondaryVariant"
+            android:textColor="?attr/colorSecondaryVariant"
             android:spinnerMode="dropdown" />
 
         <Button
             android:id="@+id/btnConvertir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
-            android:backgroundTint="#6200EE"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="?attr/colorPrimary"
             android:paddingHorizontal="24dp"
             android:text="@string/btnTitulo"
-            android:textColor="#FFFFFF" />
+            android:textColor="?attr/colorOnPrimary" />
 
         <TextView
             android:id="@+id/tvResultado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="#757575"
+            android:textColor="?attr/colorSecondary"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lista_nombres"
-            />
+            android:gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:text="@string/tituloIntegrantes" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:text="@string/Integrante1" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:text="@string/Integrante2" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:text="@string/Integrante3" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:text="@string/Integrante4" />
+
 
     </LinearLayout>
 </LinearLayout>
