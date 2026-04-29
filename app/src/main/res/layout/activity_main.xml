@@ -41,9 +41,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:gravity="center"
+            android:hint="@string/placeHolder"
+            android:textColorHint="?attr/colorSecondary"
             android:inputType="numberDecimal"
-            android:textColor="?attr/colorSecondary"
             android:text=""
+            android:textColor="?attr/colorSecondary"
             android:textSize="18sp" />
 
         <TextView
@@ -71,8 +73,7 @@
             android:layout_marginBottom="8dp"
             android:background="?attr/colorPrimary"
             android:src="@drawable/ic_intercambio"
-            app:tint="?attr/colorSecondary"
-            android:contentDescription="Intercambiar unidades" />
+            app:tint="?attr/colorSecondary" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,7 +87,7 @@
             android:id="@+id/spinnerFrom2"
             android:layout_width="200dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="24dp"
             android:entries="@array/unidades_peso"
             android:background="?attr/colorSecondaryVariant"
             android:textColor="?attr/colorSecondaryVariant"
@@ -96,7 +97,7 @@
             android:id="@+id/btnConvertir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="13dp"
             android:backgroundTint="?attr/colorPrimary"
             android:paddingHorizontal="24dp"
             android:text="@string/btnTitulo"
@@ -106,6 +107,7 @@
             android:id="@+id/tvResultado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
             android:text=""
             android:textColor="?attr/colorSecondary"
             android:textSize="16sp" />

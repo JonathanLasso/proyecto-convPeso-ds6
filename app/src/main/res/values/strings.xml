@@ -15,4 +15,5 @@
     <string name="Integrante2">Lasso Jonathan</string>
     <string name="Integrante3">Quinto Jonathan</string>
     <string name="Integrante4">Ramirez Edinson</string>
+    <string name="placeHolder">Ingrese un peso</string>
 </resources>
