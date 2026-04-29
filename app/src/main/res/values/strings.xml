@@ -10,4 +10,11 @@
     <string name="unidadDesde">Convertir De:</string>
     <string name="unidadHacia">Convertir A:</string>
     <string name="btnTitulo">CONVERTIR</string>
+
+    <string name="lista_nombres">
+    Edinson Ramirez 8-948-104\n
+    Ricardo de Freitas 8-769-2017\n
+    Jonathan, lasso 8-1034-308\n
+    Jonathan Quinto
+</string>
 </resources>
