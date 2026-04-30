@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val btnConvercion = findViewById<Button>(R.id.btnConvertir)
         val btnInvertir = findViewById<ImageButton>(R.id.btnInvertir)
         val tvResultado = findViewById<TextView>(R.id.tvResultado)
+
         btnInvertir.setOnClickListener {
             val pos1 = spinnerFrom1.selectedItemPosition
             val pos2 = spinnerFrom2.selectedItemPosition
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 btnConvercion.performClick()
             }
         }
+
         btnConvercion.setOnClickListener {
             val textoPeso = peso.text.toString()
             if(textoPeso.isNotEmpty()){
@@ -37,11 +42,11 @@ class MainActivity : AppCompatActivity() {
                     val valorPeso = textoPeso.toDouble()
                     val unidadDesde = spinnerFrom1.selectedItem.toString().lowercase()
                     val unidadHacia = spinnerFrom2.selectedItem.toString().lowercase()
+
                     if(unidadDesde == unidadHacia){
                         Toast.makeText(this,"Seleccione unidades diferentes", Toast.LENGTH_LONG).show()
                         return@setOnClickListener
-                    }
-                    else{
+                    } else{
                         //convertimos cualquier unidad de entrada a gramos
                         val pesoEnGramos = when {
                             unidadDesde.contains("kilogramo") -> valorPeso * 1000.0
@@ -59,26 +64,26 @@ class MainActivity : AppCompatActivity() {
                             else -> pesoEnGramos
                         }
                         val etiquetaDesde =
-                            if(unidadDesde.contains("kilogramo")) "kg"
-                            else if(unidadDesde.contains("libra")) "lb"
-                            else if(unidadDesde.contains("onza")) "oz"
-                            else "g"
+                            if(unidadDesde.contains("kilogramo")) R.string.unidadKilogramo
+                            else if(unidadDesde.contains("libra")) R.string.unidadLibra
+                            else if(unidadDesde.contains("onza")) R.string.unidadOnza
+                            else R.string.unidadGramos
                         val etiquetaHacia =
-                            if(unidadHacia.contains("kilogramo")) "kg"
-                            else if(unidadHacia.contains("libra")) "lb"
-                            else if(unidadHacia.contains("onza")) "oz"
-                            else "g"
+                            if(unidadHacia.contains("kilogramo")) R.string.unidadKilogramo
+                            else if(unidadHacia.contains("libra")) R.string.unidadLibra
+                            else if(unidadHacia.contains("onza")) R.string.unidadOnza
+                            else R.string.unidadGramos
                         val formatoDecimales = when {
-                            unidadHacia.contains("kilogramo") -> "%.4f"
-                            unidadHacia.contains("libra") -> "%.4f"
-                            unidadHacia.contains("onza") -> "%.3f"
-                            unidadHacia.contains("gramo") -> "%.0f"
-                            else -> "%.4f"
+                            unidadHacia.contains("kilogramo") -> R.string.formato4Decimales
+                            unidadHacia.contains("libra") -> R.string.formato4Decimales
+                            unidadHacia.contains("onza") -> R.string.formato3Decimales
+                            unidadHacia.contains("gramo") -> R.string.formato0Decimales
+                            else -> R.string.formato4Decimales
                         }
-                        tvResultado.text = "%.1f %s = $formatoDecimales %s".format(valorPeso, etiquetaDesde, resultado, etiquetaHacia)
+                        tvResultado.text = getString(formatoDecimales, valorPeso, etiquetaDesde, resultado, etiquetaHacia)
                     }
-                }catch (e: NumberFormatException) {
-                    tvResultado.text = "Error de conversión."
+                }catch (_: NumberFormatException) {
+                    tvResultado.text = getString(R.string.mensajeError)
                 }
             } else {
                 Toast.makeText(this,"Por favor, ingrese un valor.", Toast.LENGTH_LONG).show()

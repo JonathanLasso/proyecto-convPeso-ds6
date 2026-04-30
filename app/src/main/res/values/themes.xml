@@ -3,20 +3,11 @@
     <style name="Base.Theme.ConversionPeso" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <!-- Colores oficiales de Material 3 -->
         <item name="colorPrimary">#3D19FF</item>
-        <item name="colorOnPrimary">#FFC745</item>
-
-        <!-- Usamos colorSecondary para tu amarillo -->
         <item name="colorSecondary">#FFC745</item>
-        <item name="colorOnSecondary">#04043B</item>
-
-        <!-- Usamos android:windowBackground para el fondo oscuro -->
+        <item name="colorSecondaryVariant">#ECEAFF</item>
         <item name="android:windowBackground">#04043B</item>
-
-        <!-- Esto reemplaza a tu 'backgroundColor' para poder usarlo en vistas -->
         <item name="colorSurface">#04043B</item>
     </style>
-
     <style name="Theme.ConversionPeso" parent="Base.Theme.ConversionPeso" />
 </resources>

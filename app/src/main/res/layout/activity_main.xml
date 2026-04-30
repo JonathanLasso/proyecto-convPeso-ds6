@@ -16,7 +16,6 @@
         app:title="@string/app_name"
         app:titleTextColor="?attr/colorOnPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,11 +38,15 @@
             android:id="@+id/editValor"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:importantForAutofill="no"
             android:layout_marginBottom="32dp"
             android:gravity="center"
             android:inputType="numberDecimal"
             android:textColor="?attr/colorSecondary"
             android:text=""
+            android:hint="@string/placeHolder"
+            android:textColorHint="?attr/colorSecondaryVariant"
             android:textSize="18sp" />
 
         <TextView
@@ -72,7 +75,7 @@
             android:background="?attr/colorPrimary"
             android:src="@drawable/ic_intercambio"
             app:tint="?attr/colorSecondary"
-            android:contentDescription="Intercambiar unidades" />
+            android:contentDescription="@string/descripcionImagen" />
 
         <TextView
             android:layout_width="wrap_content"
