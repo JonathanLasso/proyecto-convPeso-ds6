@@ -1,158 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6F7C5F"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- Header -->
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/titulo"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="22sp" />
+
+    <!-- Card: Entrada -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:title="@string/app_name"
-        app:titleTextColor="?attr/colorOnPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:cardBackgroundColor="?attr/colorSurfaceVariant"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:text="@string/unidadDesde"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="11sp" />
+
+            <EditText
+                android:id="@+id/editValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:alpha="0.9"
+                android:background="@null"
+                android:fontFamily="sans-serif-medium"
+                android:hint="@string/placeHolder"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:text=""
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurface"
+                android:textSize="28sp" />
+
+            <Spinner
+                android:id="@+id/spinnerFrom1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#928989"
+                android:entries="@array/unidades_peso"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:spinnerMode="dropdown" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Fila intercambio -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:background="?attr/colorSurface"
-        android:padding="32dp">
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/titulo"
-            android:textColor="?attr/colorSecondary"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editValor"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:importantForAutofill="no"
-            android:layout_marginBottom="32dp"
-            android:gravity="center"
-            android:inputType="numberDecimal"
-            android:textColor="?attr/colorSecondary"
-            android:text=""
-            android:hint="@string/placeHolder"
-            android:textColorHint="?attr/colorSecondaryVariant"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/unidadDesde"
-            android:textColor="?attr/colorSecondary"
-            android:textSize="14sp" />
-
-        <Spinner
-            android:id="@+id/spinnerFrom1"
-            android:layout_width="200dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="24dp"
-            android:entries="@array/unidades_peso"
-            android:background="?attr/colorSecondaryVariant"
-            android:textColor="?attr/colorSecondaryVariant"
-            android:spinnerMode="dropdown" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="?attr/colorOutlineVariant" />
 
         <ImageButton
             android:id="@+id/btnInvertir"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
-            android:background="?attr/colorPrimary"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="?attr/colorSurfaceVariant"
+            android:contentDescription="@string/descripcionImagen"
             android:src="@drawable/ic_intercambio"
-            app:tint="?attr/colorSecondary"
-            android:contentDescription="@string/descripcionImagen" />
+            app:tint="?attr/colorOnSurfaceVariant" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/unidadHacia"
-            android:textColor="?attr/colorSecondary"
-            android:textSize="14sp" />
-
-        <Spinner
-            android:id="@+id/spinnerFrom2"
-            android:layout_width="200dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="48dp"
-            android:entries="@array/unidades_peso"
-            android:background="?attr/colorSecondaryVariant"
-            android:textColor="?attr/colorSecondaryVariant"
-            android:spinnerMode="dropdown" />
-
-        <Button
-            android:id="@+id/btnConvertir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="?attr/colorPrimary"
-            android:paddingHorizontal="24dp"
-            android:text="@string/btnTitulo"
-            android:textColor="?attr/colorOnPrimary" />
-
-        <TextView
-            android:id="@+id/tvResultado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="?attr/colorSecondary"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="?attr/colorSecondary"
-            android:text="@string/tituloIntegrantes" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="?attr/colorSecondary"
-            android:text="@string/Integrante1" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="?attr/colorSecondary"
-            android:text="@string/Integrante2" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="?attr/colorSecondary"
-            android:text="@string/Integrante3" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="?attr/colorSecondary"
-            android:text="@string/Integrante4" />
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="?attr/colorOutlineVariant" />
 
     </LinearLayout>
+
+    <!-- Card: Destino -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:cardBackgroundColor="?attr/colorSurfaceVariant"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EEF0EE"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:text="@string/unidadHacia"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="11sp" />
+
+            <Spinner
+                android:id="@+id/spinnerFrom2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#928989"
+                android:entries="@array/unidades_peso"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:spinnerMode="dropdown"
+
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Card: Resultado -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="?attr/colorSecondaryContainer"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingVertical="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:alpha="0.6"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.08"
+                android:text="RESULTADO"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="—"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón Convertir -->
+    <Button
+        android:id="@+id/btnConvertir"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="?attr/colorOnSurface"
+        android:fontFamily="sans-serif-medium"
+        android:stateListAnimator="@null"
+        android:text="@string/btnTitulo"
+        android:textColor="?attr/colorSurface"
+        android:textSize="14sp"
+        app:cornerRadius="12dp" />
+
+    <!-- Integrantes -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:alpha="0.45"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.08"
+        android:text="@string/tituloIntegrantes"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="10sp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="4dp"
+        app:chipSpacingVertical="2dp">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Integrante1"
+            android:textSize="11sp"
+            app:chipBackgroundColor="?attr/colorSurfaceVariant"
+            app:chipStrokeColor="?attr/colorOutlineVariant"
+            app:chipStrokeWidth="0.5dp" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Integrante2"
+            android:textSize="11sp"
+            app:chipBackgroundColor="?attr/colorSurfaceVariant"
+            app:chipStrokeColor="?attr/colorOutlineVariant"
+            app:chipStrokeWidth="0.5dp" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Integrante3"
+            android:textSize="11sp"
+            app:chipBackgroundColor="?attr/colorSurfaceVariant"
+            app:chipStrokeColor="?attr/colorOutlineVariant"
+            app:chipStrokeWidth="0.5dp" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Integrante4"
+            android:textSize="11sp"
+            app:chipBackgroundColor="?attr/colorSurfaceVariant"
+            app:chipStrokeColor="?attr/colorOutlineVariant"
+            app:chipStrokeWidth="0.5dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
 </LinearLayout>
